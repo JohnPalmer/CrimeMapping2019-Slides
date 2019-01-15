@@ -1,397 +1,531 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Mètodes d'Investigació Criminològica Avançada</title>
+	<title>Crime Mapping and Spatial Analysis</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/beige.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
 
-			<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
 			<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
 			<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
 
 
 			<div class="slides">
 
-		<section>
-		<h1>Mètodes d'Investigació Criminològica Avançada</h1>
-		<h3>Sessió 1: Marc conceptual teòric</h3>
-		<p><a href="http://johnrbpalmer.com">John Palmer</a>
-		</section>
+				<section>
+					<h1>Crime Mapping and Spatial Analysis</h1>
+					<h3>Class 1: Theoretical Framework and Research Design</h3>
+					<p><a href="http://johnrbpalmer.com">John Palmer</a>
+					</section>
 
-			<section data-background="images/mountain_norway.jpg" data-state="footer1">
-				<style>.footer1 footer:after { content: "Troms, Norway, Ximonic (Simo Räsänen), CC BY-SA 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
-				<div>&nbsp;</div>
-			</section>
-
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h2>Pla</h2>
-				</div>
-				<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
+					<section data-background="images/mountain_norway.jpg" data-state="footer1">
+						<style>.footer1 footer:after { content: "Troms, Norway, Ximonic (Simo Räsänen), CC BY-SA 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
+						<div>&nbsp;</div>
+					</section>
 
 
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Horaris</h3>
-			<ul>
-				<li>Setmanes 1-10: Dimarts 13:00-15:00, 40.245.</li>
-				<li>Setmanes 1-5: Dijous 13:00-15:00, 40.145.</li>		
-			</ul>
-				</div>
-				<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Metodologia docent</h3>
-			<ul>
-			<li>Classes teòriques: lectures, discussió</li>
-			<li>Tallers d'investigació: experiència pràctica </li>
-			</ul>
-				</div>
-				<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Horaris d'atenció a l'estudiant</h3>
-				<ul>
-					<li>Dimarts, 16:00-17:00, 20.100</li>
-					<li><a href="https://calendar.google.com/calendar/selfsched?sstoken=UUVKM0xtNmRsRF9hfGRlZmF1bHR8MzU3NDUyYzNjMzgwMjRiM2NmMTg2ZmM5OWJkNzg0NmM">Fes reserva</a></li>
-				</ul>
-				</div>
-				<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Aquestes diapositives</h3>
-			<ul>
-			<li><a href="https://johnpalmer.github.io/MICA2018-Slides/s01.html">Versió en viu</a></li>
-			<li><a href="https://johnpalmer.github.io/MICA2018-Slides/">Index</a></li>
-			</ul>
-				</div>
-				<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Avaluació</h3>
-				<ul style="list-style: none;">
-				<li>
-				<h4>Avaluació continuada</h4></li><ul>
-<li>Participació (10% de la nota final)</li>
-<li>Examen parcial (40% de la nota final)</li></ul>
-</ul>
-</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Avaluació</h3>
-				<ul style="list-style: none;">
-				<li>
-				<h4>Avaluació final</h4></li><ul>
-<li>Projecte de recerca (20% de la nota final)</li>
-<li>Examen final (30% de la nota final)</li></ul>
-</ul>
-</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-			<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Continguts</h3>
-				<ul style="list-style: none;">
-				<li>
-				<h4>BLOC I: introducció, revisió, i teoria</h4></li><ul>
-<li>Marc conceptual teòric i ètiques</li>
-<li>Disseny de la investigació</li>
-<li>Anàlisi quantitatiu i qualitatiu</li>
-<li>L'espai i el temps en criminologia</li></ul>
-</ul>
-</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-		<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Continguts</h3>
-				<ul style="list-style: none;">
-				
-<li><h4>BLOC II: Sistemes d'informació geogràfica (SIG)</h4></li><ul>
-<li>Dades, programari, i maquinari de SIG</li>
-<li>Mapatge del delicte</li></ul>
-</ul>
-</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-		<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Continguts</h3>
-				<ul style="list-style: none;">
-				<li>
-<li><h4>BLOC III: Anàlisi espacial</h4></li><ul>
-<li>Buffers, distàncies, agregació, patrons, i agrupament</li>
-<li>Correlació, autocorrelació, i inferència</li>
-<li>Noves fonts de dades, els nous mètodes</li></ul>
-</ul>
-</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-		<section data-background="images/blueprints.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Continguts</h3>
-				<ul style="list-style: none;">
-				
-<li><h4>BLOC IV: Síntesi</h4></li><ul>
-<li>Investigacions socio-espacial en criminologia</li></ul></ul>
-</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-			<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h2>Filosofia</h2>
-		
-				</div>
-				<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-			<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Ontologia</h3>	
-				<p>Són els fenòmens socials coses en si mateixes?</p>			
-				<ul>
-				<li>Realisme</li>
-				<li>Realisme crític</li>
-				<li>Constructivisme</li>
-				</ul>
-				</div>
-				<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-
-			<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Epistemologia</h3>
-				
-					<p>Reflexió sobre la naturalesa del coneixement</p>
-				</div>
-				<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-			<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Paradigmes</h3>
-				
-					<ul>
-				<li>Positivisme</li>
-				<li>Neo-positivisme</li>
-				<li>Interpretivisme</li>
-				<li>Realisme crític</li>
-				</ul>
-				</div>
-				<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-
-
-			<section data-background="images/microscope.jpg" data-state="footermic">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h2>Ciència</h2>
-		
-				</div>
-				<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-			<section data-background="images/microscope.jpg" data-state="footermic">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				
-<img src="images/ind_ded.png"></div>
-
-				<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-			<section data-background="images/microscope.jpg" data-state="footermic">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Mètode científic</h3>
-				<ul>
-				<li>Pregunta</li>
-				<li>Hipòtesi</li>
-				<li>Predicció</li>
-				<li>Proves</li>
-				<li>Anàlisi</li>
-				<li>Revisió</li>
-				<li>Replicació</li>
-				<li>Falsificació</li>	
-				</div>
-				<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-			<section data-background="images/microscope.jpg" data-state="footermic">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Inferència</h3>
-				<ul>
-				<li>Descriptiu</li>
-				<li>Causal</li>
-				</ul>
-				</div>
-				<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
-
-
-
-				<section data-background="images/David_Teniers_globe.jpg" data-state="footergsr">
-					<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-						<h2>Preguntes de recerca</h2>
-					</div>
-					<style>.footergsr footer:after { content: "David Teniers the Younger, 1645-1650, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-					<div>&nbsp;</div>	
-				</section>
-
-
-
-				<section data-background="images/David_Teniers_globe.jpg" data-state="footergsr">
-					<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-						<h3>Preguntes de recerca</h3>
-						<ul>
-							<li>recerca bàsica vs. investigació aplicada</li>
-							<li>ampli vs. estret</li>
-							<li>substancial vs metodològic</li>
-							<li>què, per què, com?</li>
-							<li>viabilitat</li>
-							<li>connexió a la literatura</li>
-							<li>connexió a l'agenda de recerca</li>
+					<section data-background="images/blueprints.jpg" data-state="footer2">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h2>Plan</h2>
 						</div>
-						<style>.footergsr footer:after { content: "David Teniers the Younger, 1645-1650, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<div>&nbsp;</div>	
+					</section>
+
+
+					<section data-background="images/blueprints.jpg" data-state="footer2">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h3>Schedule</h3>
+							<ul>
+								<li>Weeks 2-5, 7, 9: Tuesdays 12:30-14:30.</li>
+								<li>Weeks 2-10: Thursdays 12:30-14:30.</li>		
+							</ul>
+						</div>
+						<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<div>&nbsp;</div>	
+					</section>
+
+					<section data-background="images/blueprints.jpg" data-state="footer2">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h3>Teaching Method</h3>
+							<ul>
+								<li>Lectures</li>
+								<li>Computer Labs</li>
+							</ul>
+						</div>
+						<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<div>&nbsp;</div>	
+					</section>
+
+					<section data-background="images/blueprints.jpg" data-state="footer2">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h3>Office Hours</h3>
+							<ul>
+								<li>Thursdays, 14:45-15:45, Room 20.100</li>
+								<li><a href="https://calendar.google.com/calendar/selfsched?sstoken=UUVKM0xtNmRsRF9hfGRlZmF1bHR8MzU3NDUyYzNjMzgwMjRiM2NmMTg2ZmM5OWJkNzg0NmM">Online Reservations</a></li>
+							</ul>
+						</div>
+						<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
 						<div>&nbsp;</div>	
 					</section>
 
 
 
-			<section data-background="images/UPF_library.jpg" data-state="footer1">
-				<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
-<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h2>Revisió de la literatura</h2>
-
-				</div>
-			</section>
-
-
-			<section data-background="images/UPF_library.jpg" data-state="footer1">
-				<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
-<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Propòsits</h3>
-				<ul>
-				<li>fonament</li>
-				<li>autoritat</li>
-				<li>diàleg</li>
-				</ul>
-				</div>
-			</section>
+					<section data-background="images/blueprints.jpg" data-state="footer2">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h3>Evaluation</h3>
+							<ul>
+								<li>Participation (10% of final grade)</li>
+								<li>Computer lab exercises (40% of final grade)</li>
+								<li>Final project - mapping component (20% of final grade)</li>
+								<li>Final project - spatial analysis component (30% of final grade)</li>
+							</ul>
 
 
-			<section data-background="images/UPF_library.jpg" data-state="footer1">
-				<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
-<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Preguntes</h3>
-				<ul>
-				<li>Què ja se sap?</li>
-				<li>Quins conceptes i teories són rellevants?</li>
-				<li>Quins mètodes i estratègies s'han utilitzat?</li>
-				<li>Hi ha debats importants?</li>
-				<li>Hi ha inconsistències?</li>
-				<li>Hi ha llacunes?</li>
-				</ul>
-				</div>
-			</section>
+						</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<div>&nbsp;</div>	
+					</section>
 
 
 
-			<section data-background="images/UPF_library.jpg" data-state="footer2">
-			<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
-				<h3>Organització d'informació</h3>
-				<ul>
-				<li>Gestors de referència</li>
-				<ul>
-					<li><a href="https://www.mendeley.com">Mendeley</a></li>
-					<li><a href="https://www.zotero.org">Zotero</a>
-					</li>
-					<li><a href="http://www.bibtex.org/">BibTex</a></li>
-				</ul>
-				</ul>
-				</div>
-				<style>.footer2 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
-				<div>&nbsp;</div>	
-			</section>
+					<section data-background="images/blueprints.jpg" data-state="footer2">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h3>Outline</h3>
+							<ul style="list-style: none;">
+								<li>
+									<h4>Block I: Introduction, Review, and Theory</h4></li><ul>
+										<li>Theoretical framework, research design, research ethics</li>
+										<li>Qualitative and quantitative analysis</li>
+										<li>Space and time in criminology</li></ul>
+										<br>
+									<li><h4>Block 2: Geographic Information Systems</h4></li><ul>
+											<li>GIS data, software, and hardware</li>
+											<li>Crime mapping I</li>
+											<li>Crime mapping II</li></ul>
+										</ul>
+
+								</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+
+								<section data-background="images/blueprints.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h3>Outline</h3>
+										<ul style="list-style: none;">
+											<li>
+												<li><h4>Block 3: Spatial Analysis</h4></li><ul>
+													<li>Buffers, distances, aggregation, patterns, and clustering</li>
+													<li>Correlation, autocorrelation, and inference</li>
+													<li>New data sources and methods</li></ul>
+													<br>
+													<li><h4>Block 4: Synthesis</h4></li><ul>
+														<li>Socio-spatial research in criminology</li></ul></ul>
+												</ul>
+											</div>			<style>.footer2 footer:after { content: "Blueprint from Greene and Greene Archives, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+											<div>&nbsp;</div>	
+										</section>
+
+
+												<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
+													<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+														<h2>Philosophy</h2>
+
+													</div>
+													<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+													<div>&nbsp;</div>	
+												</section>
+
+												<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
+													<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+														<h3>Ontology</h3>
+														<ul>
+															<li>What exists?</li>
+															<li>What is the nature of what we are studying?</li>
+															<li>Objectivism vs. Constructionism</li>
+														</ul>
+													</div>
+													<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+													<div>&nbsp;</div>	
+												</section>
+
+
+
+												<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
+													<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+															<h3>Epistemology</h3>
+							<ul>
+
+								<li>What is the nature of knowledge?</li>
+								<li>What is or should be regarded as acceptable knowledge?</li>
+								<li>Positivism vs. Interpretivism</li>
+							</ul>
+													</div>
+													<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+													<div>&nbsp;</div>	
+												</section>
+
+
+					<section data-background="images/rafael_school_of_athens.jpg" data-state="footersoa">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+					<h3>Research Logics</h3>
+						<img src="images/induction_deduction.png">
+
+						</div>
+						<style>.footersoa footer:after { content: "Rafael, School of Athens (1509-1511), Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<div>&nbsp;</div>	
+					</section>
+
+
+					<section data-background="images/microscope.jpg" data-state="footermic">
+						<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+							<h2>Research Strategies and Paradigms</h2>
+							
+						</div>
+						<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+						<div>&nbsp;</div>	
+					</section>
+
+							<section data-background="images/microscope.jpg" data-state="footermic">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h3>Scientific Practice</h3>
+									<ul>
+										<li>Paradigms and revolutions (Kuhn, 1962)</li>
+										<li>Social science peculiarities</li>
+									</ul>	
+								</div>
+								<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+
+
+						<section data-background="images/microscope.jpg" data-state="footermic">
+							<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+								<h3>Neo-Positivist Approach</h3>
+								<ul>
+									<li>Question</li>
+									<li>Hypothesis</li>
+									<li>Prediction</li>
+									<li>Testing</li>
+									<li>Analysis</li>
+									<li>Review</li>
+									<li>Replication</li>
+									<li>Falsification</li>		
+								</div>
+								<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+
+
+							<section data-background="images/microscope.jpg" data-state="footermic">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h3>Inference</h3>
+									<ul>
+										<li>Descriptive</li>
+										<li>Causal</li>
+									</ul>
+								</div>
+								<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+							<section data-background="images/microscope.jpg" data-state="footermic">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h3>Generalization & Simplification</h3>
+									<ul>
+										<li>Parsimony</li>
+										<li>Models</li>
+									</ul>
+								</div>
+								<style>.footermic footer:after { content: "Beale-type microscope, England, 1871-1900, Welcome Library, London, CC BY 4.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+
+							<section data-background="images/uncertainty.jpg" data-state="footeru">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h2>Uncertainty</h2>
+								</div>
+								<style>.footeru footer:after { content: "Dice players. Roman fresco from the Osteria della Via di Mercurio (VI 10,1.19, room b) in Pompeii, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+
+							<section data-background="images/uncertainty.jpg" data-state="footeru">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h3>Key Ideas</h3>
+									<ul>
+										<li>Unpredictability</li>
+										<li>Randomness and deterministic chaos</li>
+										<li>Stochastic vs. systematic components</li>
+									</div>
+									<style>.footeru footer:after { content: "Dice players. Roman fresco from the Osteria della Via di Mercurio (VI 10,1.19, room b) in Pompeii, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+
+							<section data-background="images/uncertainty.jpg" data-state="footeru">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h3>Population Dynamics Example</h3>
+									<br>
+										$$N_{i+1} = rN_{i}\left(1-\frac{N_i}{K}\right)$$								
+										<br>
+										<a href="logistic_map.xlsx">Excel Demo</a>
+
+									</div>
+									<style>.footeru footer:after { content: "Dice players. Roman fresco from the Osteria della Via di Mercurio (VI 10,1.19, room b) in Pompeii, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+
+								<section data-background="images/protractor.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h2>Research Design</h2>
+									</div>
+									<style>.footer2 footer:after { content: "Mechanical Protractor, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+								<section data-background="images/protractor.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h3>Criteria</h3>
+										<ul>
+											<li>Reliability</li>
+											<li>Replicability</li>
+											<li>Validity</li>
+										</ul>
+									</div>
+									<style>.footer2 footer:after { content: "Mechanical Protractor, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+
+								<section data-background="images/protractor.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h3>Reliability</h3>
+										<ul>
+											<li>Do our measures give stable and consistent values?</li>
+										</ul>
+									</div>
+									<style>.footer2 footer:after { content: "Mechanical Protractor, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+
+								<section data-background="images/protractor.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h3>Replicability</h3>
+										<ul>
+											<li>Can others replicate our findings?</li>
+										</ul>
+									</div>
+									<style>.footer2 footer:after { content: "Mechanical Protractor, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+
+								<section data-background="images/protractor.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h3>Validity</h3>
+										<ul>
+											<li>Internal validity</li>
+											<li>External validity</li>
+										</ul>
+									</div>
+									<style>.footer2 footer:after { content: "Mechanical Protractor, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
+
+
+								<section data-background="images/protractor.jpg" data-state="footer2">
+									<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+										<h3>Design Types</h3>
+										<ul>
+											<li>Experimental</li>
+											<li>Quasi-Experimental</li>
+											<li>Cross-Sectional</li>
+											<li>Longitudinal</li>
+											<li>Case Study</li>
+											<li>Comparative</li>
+										</ul>
+									</div>
+									<style>.footer2 footer:after { content: "Mechanical Protractor, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+									<div>&nbsp;</div>	
+								</section>
 
 
 
 
-			</div>
-		</div>
+														<section data-background="images/David_Teniers_globe.jpg" data-state="footergsr">
+															<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+																<h3>Research Questions</h3>
+																<ul>
+																	<li>Basic vs. Applied</li>
+																	<li>Broad vs. Narrow</li>
+																	<li>Substantive vs. Methodological</li>
+																	<li>What, Why, How</li>
+																	<li>Feasibility</li>
+																	<li>Connection to literature</li>
+																	<li>Connection to research agenda</li></ul>
+																</div>
+																<style>.footergsr footer:after { content: "David Teniers the Younger, 1645-1650, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+																<div>&nbsp;</div>	
+															</section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
 
-		<script>
+
+															<section data-background="images/UPF_library.jpg" data-state="footer1">
+																<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+																	<h2>Literature Review</h2>
+
+																</div>
+															</section>
+
+
+															<section data-background="images/UPF_library.jpg" data-state="footer1">
+																<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+																	<h3>Purposes</h3>
+																	<ul>
+																		<li>Foundation</li>
+																		<li>Authority</li>
+																		<li>Dialog</li>
+																	</ul>
+																</div>
+															</section>
+
+
+															<section data-background="images/UPF_library.jpg" data-state="footer1">
+																<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+																	<h3>Questions</h3>
+																	<ul>
+																		<li>What is already known?</li>
+																		<li>What concepts and theories are relevant?</li>
+																		<li>What methods and strategies have been employed?</li>
+																		<li>Are there significant controversies?</li>
+																		<li>Are there inconsistencies?</li>
+																		<li>Are there gaps?</li>
+																	</ul>
+																</div>
+															</section>
+
+
+															<section data-background="images/UPF_library.jpg" data-state="footer1">
+																<style>.footer1 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+																	<h3>Stories</h3>
+																	<ul>
+																		<li>Synthesized, inter-textual coherence</li>
+																		<li>Progressive, inter-textual coherence</li>
+																		<li>Non-coherence</li>
+																		<li>Incomplete literature</li>
+																		<li>Incommensurate literature</li>
+																	</ul>
+																</div>
+															</section>
+
+															<section data-background="images/UPF_library.jpg" data-state="footer2">
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+
+																	<h3>Finding Sources</h3>
+																	<ul>
+																		<li>Databases</li>
+																		<li>Librarians</li>
+																		<li>Experts</li>
+																		<li>Snowballs</li>
+																	</ul>
+
+																</div>
+																<style>.footer2 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+																<div>&nbsp;</div>	
+															</section>
+
+
+
+															<section data-background="images/UPF_library.jpg" data-state="footer2">
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+
+																	<h3>Evaluating Sources</h3>
+																	<ul>
+																		<li>Content</li>
+																		<li>Credibility</li>
+																		<li>Authority</li>
+																		<li>Relevance</li>
+																	</ul>
+																</div>
+																<style>.footer2 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+																<div>&nbsp;</div>	
+															</section>
+
+
+															<section data-background="images/UPF_library.jpg" data-state="footer2">
+																<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+																	<h3>Organizing Information</h3>
+																	<ul>
+																		<li>Reference managers</li>
+																		<ul>
+																			<li><a href="https://www.mendeley.com">Mendeley</a></li>
+																			<li><a href="https://www.zotero.org">Zotero</a>
+																			</li>
+																			<li><a href="http://www.bibtex.org/">BibTex</a></li>
+																		</ul>
+																	</ul>
+																</div>
+																<style>.footer2 footer:after { content: "UPF Library, Hyemin Kwon, CC BY-SA 3.0, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+																<div>&nbsp;</div>	
+															</section>
+
+
+
+
+														</div>
+													</div>
+
+													<script src="lib/js/head.min.js"></script>
+													<script src="js/reveal.js"></script>
+
+													<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				math: {
+		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+		config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+	},
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+								{ src: 'plugin/math/math.js', async: true }
+
 				]
 			});
 		</script>
 	</body>
-</html>
+	</html>
