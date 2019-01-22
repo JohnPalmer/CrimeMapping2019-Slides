@@ -191,7 +191,7 @@
  <p>Now select the menu item <kbd>Edit &rarr; Add Feature</kbd> or press the <span><img height="30px" src="images/qgis_add_feature_button.png" alt="screenshot"></span> button. Click on the map wherever you want to add a point. Place a point on th approximate location of our classroom. Each time you click, you will need to provide attributes for the fields you created when you created the layer. For now, since we used the defaults, we need only an id. Give this whatever value you want.</p>
 
 
-        <h1 id="mapping_basics">Mapping Basics</h1>
+        <h1 id="">Mapping Basics</h1>
 
           <h2>Mapping crime locations</h2>
 
@@ -206,7 +206,10 @@
 
             <p>Add the data to your map using <kbd>Layer &rarr; Add Layer &rarr; Add Delimite Text Layer...</kbd>, or with the <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span> button.</p>
 
-            <p>Select the data file you want (for this exercise, use the file you just downloaded and saved: <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). In the <kbd>Geometry definition</kbd>box, make sure <kbd>Point coordinates</kbd> is selected. Make sure that the <kbd>X field</kbd> and <kbd>Y field</kbd> boxes contain the correct field names from your data for the x and y coordinates. You can check this by looking at the data preview shown in the bottom of the window. In this case, QGIS automatically recognizes that there are fields labeled Latitude and Longitude and that these should be x and y, respectively. Now click <kbd>OK</kbd>.</p>
+            <p>Select the data file you want (for this exercise, use the file you just downloaded and saved: <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). In the <kbd>Geometry definition</kbd>box, make sure <kbd>Point coordinates</kbd> is selected. Make sure that the <kbd>X field</kbd> and <kbd>Y field</kbd> boxes contain the correct field names from your data for the x and y coordinates. You can check this by looking at the data preview shown in the bottom of the window. In this case, QGIS automatically recognizes that there are fields labeled Longitude and Latitude and that these should be x and y, respectively. Now click <kbd>OK</kbd>.</p>
+
+                        <p>A new window will now pop up for you to select a Coordinate Reference System (CRS) for the layer you are adding. This will often require some thinking because selecting the wrong CRS will lead to your layer being incorrectly placed on the map (or sometimes not visible at all). For points recorded as Latitude and Longitude, you will want to use WGS 84 - EPSG 4326. (If you type 4326 in the filter bar at the top it will come up.) To view your new layer, you will probably need to pan and zoom to get to the location where it actually has data - in this case New York City. You can do that quickly by right-clicking on the layer in the Layers Panel and selecting <kbd>Zoom to Layer</kbd>. You may also need to make sure that the layer is not being covered by another layer. The order of the layers in the Layers Panel is the order in which they appear on the map (imagine actual layers of paper or transparent paper with features on a physical map). You can drag layers up and down in that list to change the order. To learn more about each point marked on the map, select <kbd>View &rarr; Identify Features</kbd> and click on a point. You will see information in the Identify Results panel on the right (although you may need to expand that panel to see the values associated with each feature.</p>
+
 
           <h2>Printing or Exporting a Map</h2>
 
@@ -248,7 +251,6 @@
               </div>
             </div>
 -->
-            <p>A new window will now pop up for you to select a Coordinate Reference System (CRS) for the layer you are adding. This will often require some thinking because selecting the wrong CRS will lead to your layer being incorrectly placed on the map (or sometimes not visible at all). For points recorded as Latitude and Longitude, you will want to use WGS 84 - EPSG 4326. (If you type 4326 in the filter bar at the top it will come up.) To view your new layer, you will probably need to pan and zoom to get to the location where it actually has data - in this case New York City. You can do that quickly by right-clicking on the layer in the Layers Panel and selecting <kbd>Zoom to Layer</kbd>. You may also need to make sure that the layer is not being covered by another layer. The order of the layers in the Layers Panel is the order in which they appear on the map (imagine actual layers of paper or transparent paper with features on a physical map). You can drag layers up and down in that list to change the order. To learn more about each point marked on the map, select <kbd>View &rarr; Identify Features</kbd> and click on a point. You will see information in the Identify Results panel on the right (although you may need to expand that panel to see the values associated with each feature.</p>
 
 
 <!--
