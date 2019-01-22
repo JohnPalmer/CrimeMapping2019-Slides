@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Mètodes d'Investigació Criminològica Avançada</title>
+  <title>Crime Mapping and Spatial Analysis</title>
   <meta name="description" content="Mètodes d'Investigació Criminològica Avançada">
   <meta name="author" content="John R.B. Palmer">
 
@@ -37,13 +37,13 @@
 
      <div class="jumbotron">
        <div class="container" style="text-align: center">
-        <h1 data-toc-skip><b>Mètodes d'Investigació Criminològica Avançada</b></h2>
-        <h3 data-toc-skip>Receptes de QGIS</h3>
+        <h1 data-toc-skip><b>Crime Mapping and Spatial Analysis</b></h2>
+        <h3 data-toc-skip>QGIS Recipes</h3>
         
         <address>
           <strong><a href="http://johnrbpalmer.com">John Palmer</a></strong><br>
           Universitat Pompeu Fabra<br>
-          2n Trimestre 2018<br>
+          2019 - 2nd Trimester<br>
         </address>
         
       </div>
@@ -58,18 +58,19 @@
         <!-- main content area -->
         <div class="col-sm-9">
 
-        <h1>Primers passos amb QGIS</h1>
+        <h1>First Steps With QGIS</h1>
 
-        <h2>Comença un nou projecte</h2>
+        <h2>Beginning a new project</h2>
 
-        <p>Per començar un projecte nou, utilitza el menú <kbd>Projecte &rarr; Nou</kbd> o el boton <span><img height="30px" src="images/qgis_button_new.png" alt="screenshot"></span>.</p>
+        <p>In QGIS, "projects" are used to store the settings you are using. It is helpful to start a new project for each map or set of related maps that you are making. This way, you can return to your work later and start from where you left off. Note, however, that the project file does not store the data you are using or the maps you generate. These must be stored as separate files.</p>
 
-        <p>Important: el projecte és simplement un fitxer xml que emmagatzema paràmetres. No conté les dades del mapa o les imatges.</p>
+        <p>To start a new project use the menu item <kbd>Project &rarr; New</kbd> or the <span><img height="30px" src="images/qgis_button_new.png" alt="screenshot"></span> button.</p>
 
-        <h2>Canvia l'idioma</h2>
 
-        <p>Per canviar l'idioma, utilitza el menú <kbd>QGIS &rarr; Preferences</kbd> i selecciona <kbd>Locale</kbd>. A continuació, reinicia QGIS.</p>
+        <h2>Changing the language</h2>
 
+        <p>When you start QGIS it will normally be set to the default language of your computer's operating system. To change the language, use the menu item <kbd>Settings &rarr; Options</kbd> and select <kbd>Locale</kbd>. The check the box <kbd>Override system locale</kbd> and select the language you want. You will need to restart QGIS for the change to go into effect.</p>
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -84,11 +85,13 @@
               </div>
             </div>
 
+-->
+            <h2>Installing plugins</h2>
 
-            <h2>Instal·la connectors</h2>
+            <p>QGIS makes it easy for the QGIS development team as well as anyone else to write "plugins," which add particular features or functions to the program. Many of these are extremely useful.</p>
 
-            <p>Per instal·lar connectors, utilitza el menú <kbd>Connectors &rarr; Gestiona i instal·la connectors...</kbd>.</p>
-
+            <p>To install a plugin, use the menu item <kbd>Plugins &rarr; Manage and install plugins...</kbd>. This will bring up a window with a long list of available plugins on the QGIS official repository. (There are other plugin repositories that individual authors maintain but for now we will use only the official one.). Use the search bar or scroll down the list to find and install the OpenLayers plugin. (If it is already installed on your machine, you will see a check next to it and you do not need to do anything else. In the computer labs, even if you have installed a plugin during a previous session it may not remain on your machine in future sessions so it is a good idea to check that you have what you need before starting.</p>
+<!--
 
             <div class="well">
               <div class="media">
@@ -103,13 +106,23 @@
                 </div>
               </div>
             </div>
+-->
 
-            <h2>Afagi punts al mapa</h2>
+            <h2>Using the OpenLayers plugin for map tiles</h2>
 
-            <p>Per afagir punts al mapa, primer has de crear una capa nova: <kbd>Capa &rarr; Crea una capa &rarr; Capa Shapefile Nova</kbd>. O <span><img height="30px" src="images/qgis_button_new_layer.png" alt="screenshot"></span>.</p>
+            <p>To quickly make use of existing map tiles, you can use the OpenLayers plugin. This will let you connect to various map tile servers, which will allow you to use QGIS much in the way you may have used Google Maps on a web browser.</p>
+
+            <p>Select the menu item <kbd>Web &rarr; OpenLayers plugin &rarr; OpenStreetMap &rarr; OpenStreetMap</kbd>. (OpenStreetMap is just one of the possible map tile servers - try the others as well.) You will now see the OpenStreetMap tiles in your console. You can pan and zoom around the map (although, as you will see, this doing so it not as easy as it is on, say, Google Maps through a web browser). The easiest way to zoom-in on a particular location is to select the Zoom In tool (kbd>View &rarr; Zoom In)</kbd>. Then use the mouse to draw a small box over the location you want. You will probably need to do this several times - and you may need to zoom out in the process if you end up in the wrong spot. Try zooming in our building.</p>
 
 
+            <h2>Placing points on the map</h2>
 
+            <p>The most straightforward (although least efficient) way to mark points on your map is to do it manually.</p>
+
+            <p>To do this, you first need to create a new map layer ,using <kbd>Layer &rarr; Create layer &rarr; New Shapefile Layer</kbd> or the <span><img height="30px" src="images/qgis_button_new_layer.png" alt="screenshot"></span> button. In the window that pops up, you can choose to make this a layer of points, lines, or polygons. You can also modify the character encoding, the Coordinate Reference System, and the data fields that will be associated with this new layer. For now, keep the default values (which will produce a point layer), and click OK. You will then need to choose a directory and file name for this new layers.</p>
+
+
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -123,8 +136,6 @@
                 </div>
               </div>
             </div>
-
-            <p>En la finestra de opcions selecciona <kbd>Punt</kbd> per <kbd>Tipus</kbd> i afagi camps per dades si vols.</p>
 
    <div class="well">
               <div class="media">
@@ -157,8 +168,11 @@
               </div>
             </div>
 
- <p>Per afegir un punt, fes un clic-dret a la capa nova i selecciona <kbd>Commuta la edició</kbd>.</p>
+-->
 
+ <p>In order to add a point, move the cursor over your new layer in the Layers Panel and right-click on it. Then select <kbd>Toggle Editing</kbd>.</p>
+
+<!--
   <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -172,28 +186,54 @@
                 </div>
               </div>
             </div>
+-->
+
+ <p>Now select the menu item <kbd>Edit &rarr; Add Feature</kbd> or press the <span><img height="30px" src="images/qgis_add_feature_button.png" alt="screenshot"></span> button. Click on the map wherever you want to add a point. Place a point on th approximate location of our classroom. Each time you click, you will need to provide attributes for the fields you created when you created the layer. For now, since we used the defaults, we need only an id. Give this whatever value you want.</p>
 
 
- <p>Ara toca el boton <span><img height="30px" src="images/qgis_add_feature_button.png" alt="screenshot"></span> i fes un clic al mapa on vols posar el punt.</p>
+        <h1 id="mapping_basics">Mapping Basics</h1>
+
+          <h2>Mapping crime locations</h2>
+
+          <h3>Obtaining Data</h3>
+
+          <p>To get started, we will use data on reported assaults in New York City during November and December 2016. This has already been extracted from <a href="https://data.cityofnewyork.us/">NYC Open Data</a> and can be downloaded simply by clicking the button below. Save it to a location where you will be able to find it again.</p>
+
+          <a class="btn btn-default" href="data/NYPD_Complaint_Map__Year_to_Date.csv" role="button">Download the Data</a>
 
 
-        <h1>Mapes bàsics</h1>
+            <h3>Adding data to your map</h3>
 
-          <h2>Mapa d'ubicacions de delictes</h2>
+            <p>Add the data to your map using <kbd>Layer &rarr; Add Layer &rarr; Add Delimite Text Layer...</kbd>, or with the <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span> button.</p>
 
-          <h3>Obtingues dades</h3>
+            <p>Select the data file you want (for this exercise, use the file you just downloaded and saved: <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). In the <kbd>Geometry definition</kbd>box, make sure <kbd>Point coordinates</kbd> is selected. Make sure that the <kbd>X field</kbd> and <kbd>Y field</kbd> boxes contain the correct field names from your data for the x and y coordinates. You can check this by looking at the data preview shown in the bottom of the window. In this case, QGIS automatically recognizes that there are fields labeled Latitude and Longitude and that these should be x and y, respectively. Now click <kbd>OK</kbd>.</p>
 
-          <p>Per practicar, utilitzarem dades de assalts en Nova York en novembre i disembre 2016 que he extret de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+          <h2>Printing or Exporting a Map</h2>
 
-          <a class="btn btn-default" href="data/NYPD_Complaint_Map__Year_to_Date.csv" role="button">Descarregar les dades</a>
+<p>What you see in the QGIS console is useful for creating, modifying, and analyzing your map. If you want to share your map with someone or publish it as part of a report, you will want to use the print composer to produce high-quality output.</p>
+
+<h3>Setting up the Print Composer</h3>
+
+<p>Select <kbd>Project &rarr; New Print Composer</kbd>. In the dialog box that pops up, you can give this print composer a title or leave the box blank and click OK for the default title. You will now see a new window with a canvas that you can use to compose exactly how you want your map to look.
+
+  <h3>Adding a map</h3>
+
+  <p>The most obvious thing you will want on your composed map is the map itself. Select <kbd>Layout &rarr; Add Map</kbd> and then use the mouse to draw a rectangle on the canvas where you want the map to appear. Notice that the map that will now appear in that box is essentially a mirror image of the map you currently have in the main console (although the dimensions may be different depending on how you draw the box). After drawing the box, you can still move it around using the <kbd>Layout &rarr; Move Item</kbd> tool, and you can move the map around within it using the <kbd>Layout &rarr; Move Content</kbd> tool. Notice that you can add more than one map to your canvas. This makes it possible to include inset maps, for example, showing where your detailed map lies at a larger scale.</p>
+
+  <h3>Adding a scale bar</h3>
+
+<p>You may wish to add a scale bar to your map, and you can do this easily using <kbd>Layout &rarr; Add Scalebar</kbd>. Again, you will need to click on the map to position and resize the scale bar. You will notice that you also have many options to choose from in changing its appearance using the Item properties tab on the right.</p>
+
+<h3>Adding a legend</h3>
+
+<p>To add a legend, select <kbd>Layout &rarr; Add Legend</kbd> and use the mouse to draw a rectangle where you want the legend to appear. The legend will be automatically filled with the information in your layers list, but you can modify this using the Item properties tab on the right. Select the legend you have added and scroll down the Item properties to the <kbd>Legend Items</kbd> section. Uncheck <kbd>Auto update</kbd>. Now select the layers you do not wish to see in the legend and click the minus sign at the bottom to remove them. Next click the item(s) that you want in the legend and use the editing button to edit the text that will appear. In the <kbd>Main properties</kbd> section you can also change the title and alignment of the legend text.</p>
+
+<h3>Exporting your map</h3>
+
+<p>When you are happy with your map, use <kbd>Composer &rarr; Export as Image...</kbd> or <kbd>Composer &rarr; Export as PDF...</kbd> to export your map to a single file, which you can then share, embed in a report, or print. 
 
 
-            <h3>Afegeix les dades</h3>
-
-            <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
-
-            <p>Selecciona el arxiu de dades (per aquesta demostració, això és <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). En la linea <kbd>Definició de geometria</kbd>, selecciona <kbd>Coordenades del punt</kbd> i fes clic a <kbd>OK</kbd>.</p>
-
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -207,9 +247,11 @@
                 </div>
               </div>
             </div>
+-->
+            <p>A new window will now pop up for you to select a Coordinate Reference System (CRS) for the layer you are adding. This will often require some thinking because selecting the wrong CRS will lead to your layer being incorrectly placed on the map (or sometimes not visible at all). For points recorded as Latitude and Longitude, you will want to use WGS 84 - EPSG 4326. (If you type 4326 in the filter bar at the top it will come up.) To view your new layer, you will probably need to pan and zoom to get to the location where it actually has data - in this case New York City. You can do that quickly by right-clicking on the layer in the Layers Panel and selecting <kbd>Zoom to Layer</kbd>. You may also need to make sure that the layer is not being covered by another layer. The order of the layers in the Layers Panel is the order in which they appear on the map (imagine actual layers of paper or transparent paper with features on a physical map). You can drag layers up and down in that list to change the order. To learn more about each point marked on the map, select <kbd>View &rarr; Identify Features</kbd> and click on a point. You will see information in the Identify Results panel on the right (although you may need to expand that panel to see the values associated with each feature.</p>
 
-            <p>Selecciona una sistema de referència de coordinades (SRC). Si els coordinades dels punts son latitud i longitud, el SRC correcte es WGS 84 (EPSG 4326) i normalment esta seleccionat per defecte. Si tens dades amb altres coordinades, haurias de mirar en la documentació de les dades per a buscar el SRC.</p>
 
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -1217,6 +1259,7 @@
 
 <p>Ara pots com punts en polígons com abans. Una complicaciò potser si has canviat la SRC del projecte i encara tens la capa dels punts en un altre SRC (com WGS 84 / EPSG: 4326). En aquest cas, guarda la capa dels punts com una altre arxiu amb la SRC igual com la SRC dels polígons. Quan tens els punts i els polígons amb SRC igual, compta els punts en els polígons amb <kbd>Vectorial &rarr; Analysis Tools &rarr; Compte als punts al polígon</kbd>.</p>
 
+<--
 
 
 
