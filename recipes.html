@@ -191,7 +191,7 @@
  <p>Now select the menu item <kbd>Edit &rarr; Add Feature</kbd> or press the <span><img height="30px" src="images/qgis_add_feature_button.png" alt="screenshot"></span> button. Click on the map wherever you want to add a point. Place a point on th approximate location of our classroom. Each time you click, you will need to provide attributes for the fields you created when you created the layer. For now, since we used the defaults, we need only an id. Give this whatever value you want.</p>
 
 
-        <h1 id="">Mapping Basics</h1>
+        <h1 id="mapping_basics">Mapping Basics</h1>
 
           <h2>Mapping crime locations</h2>
 
@@ -217,7 +217,7 @@
 
 <h3>Setting up the Print Composer</h3>
 
-<p>Select <kbd>Project &rarr; New Print Composer</kbd>. In the dialog box that pops up, you can give this print composer a title or leave the box blank and click OK for the default title. You will now see a new window with a canvas that you can use to compose exactly how you want your map to look.
+<p>Select <kbd>Project &rarr; New Print Composer</kbd>. In the dialog box that pops up, you can give this print composer a title or leave the box blank and click OK for the default title. You will now see a new window with a canvas that you can use to compose exactly how you want your map to look.</p>
 
   <h3>Adding a map</h3>
 
@@ -233,8 +233,61 @@
 
 <h3>Exporting your map</h3>
 
-<p>When you are happy with your map, use <kbd>Composer &rarr; Export as Image...</kbd> or <kbd>Composer &rarr; Export as PDF...</kbd> to export your map to a single file, which you can then share, embed in a report, or print. 
+<p>When you are happy with your map, use <kbd>Composer &rarr; Export as Image...</kbd> or <kbd>Composer &rarr; Export as PDF...</kbd> to export your map to a single file, which you can then share, embed in a report, or print.</p>
 
+
+<h1 id="creating_polygons">Creating Vector Data From Raster Base</h1>
+
+<p>It will often be necessary to create vector data -- points, lines, or polygons -- by tracing features on an existing raster map. This recipe will walk you through that process.</p>
+
+<h2 id="add_raster">Adding a raster</h2>
+<p>Start a new project and add a raster layer. For this exercise, use a high resolution orthophoto, such as those available at <a href="http://www.icgc.cat/">http://www.icgc.cat/</a>. By saving the file in GeoTiff format you will ensure that it includes projection (CRS) information that QGIS can read automatically. Add the layer using <kbd>Layer  &rarr; Add Layer  &rarr; Add Raster Layer...</kbd> and then selecting the file. (If the file itself does not contain projection information, you will need to supply this.)</p>
+
+<h2 id="create_new_vector_layer">Creating a new vector layer.</h2>
+<p>Create a new vector layer using <kbd>Layer &rarr; Create Layer &rarr; New Shapefile Layer...</kbd>. In the dialog box that comes up, you can select the type of layer, character encoding, CRS, and the data fields to associate with the new layer. For this exercise, choose <kbd>Polygon</kbd> as the type, and add at least one new field in which you will store information associated with each feature that you draw. For this exercise, we will be using the layer to indicate the approximate number of people on each block surrounding a building, so create a <kbd>Whole Number</kbd> field and give it a name (e.g. N). Save the new layer as an SHP file in a directory where you will be able to find it again.</p>                                                                                  
+<h2 id="adding_features">Adding features</h2>
+<p>The new layer you have added should appear in the <kbd>Layers Panel</kbd>. Right click on this new layer and hit <kbd>Toggle Editing</kbd>. You will now see a set of new buttons and available menu items. Select <kbd>Edit &rarr; Add Feature</kbd>. When you hover the mouse pointer over the map you will see that it now has the shape of a cross-hairs. Left click to add sequential points that define the polygon you want to add. When you have added the last point, right click the mouse and a dialog box will appear asking you to add the fields associated with this new feature. Remember that what you add will be limited by the field type you chose (and the ID field requires whole numbers by default). For this exercise, draw a rectangle over each of the sidewalks surrounding the building (so four separate features).</p>
+
+<h1 id="vector_style">Adjusting Vector Layer Appearance</h1>
+
+<p>QGIS gives you control over how your vector layers appear: You can adjust color, fill style, transparency, labeling, and many other characteristics.</p>
+
+<h2>Opening the properties window</h2>
+<p>To do this, you need to start by opening the <kbd>Layer Properties</kbd> window. Right click on the layer you want to adjust and select <kbd>Properties</kbd>. You will see a new window with a set of tabs on the left.</p>
+
+<h2>Changing the color</h2>
+
+<p>To change the layer's color, select the <kbd>Style</kbd> tab. If this is a polygon layer, you will see a box with <kbd>Fill</kbd> and under this <kbd>Simple fill</kbd>. Click on <kbd>Simple fill</kbd> and then use the scroll bar on the right side of the window to scroll down until you see the <kbd>Fill</kbd>, <kbd>Outline</kbd>, and <kbd>Fill style</kbd> selectors. Click the <kbd>Fill</kbd> selector and choose a color. Notice that you have different options for picking the color, including choosing one from a pallet or gradient, entering HSV or RGB values, or entering an HTML code. You can also choose the level of opacity, which lets you make semitransparent features. (Note that this can be set for the fill color itself or for the entire layer.)</p>
+
+<h2>Changing the border and fill style</h2>
+
+<p>You can also change the border and fill style using the <kbd>Outline</kbd> and <kbd>Fill style</kbd> selectors.</p>
+
+<h2 id="labels">Adding labels</h2>
+
+<p>To add labels to your layer, select the <kbd>Labels</kbd> tab. At the very top of the window, change the selector from <kbd>No labels</kbd> to <kbd>Show labels for this layer</kbd>. Just underneath this selector, you will see a selector for <kbd>Label with</kbd>. Use this to select the field you wish to use for your labels. If you created a field in the exercise above for number of people, you can use this to automatically display this information on each feature. Alternatively, you might have a field for name or ID. The idea here is that QGIS can automatically use one of the fields to generate labels. Try making labels and click <kbd>OK</kbd> to see how they look. Then return to the <kbd>Properties</kbd> window to explore the various options you have for adjusting the labels' appearance.</p>
+
+<h1 id="osm_vectors">Adding OpenStreetMap vectors</h1>
+
+<p>One useful way to add existing vector information to a map, while also making it possible to customize its appearance, is to download data from OpenStreetMap (OSM). The process will be to download the OSM file for a given area, then open it, choose the layers that you want, filter these layers according to feature type, and then modify appearances.</p>
+
+<h2>Downloading OSM data</h2>
+
+<p>Start with some raster base map that lets you navigate to a place of interest (OSM map tiles, an orthophoto etc.). Zoom in to a small area, such as a neighborhood or several city blocks. Now select <kbd>Vector &rarr; OpenStreetMap &rarr; Download Data...</kbd>. In the window that appears, select <kbd>From map canvas</kbd> for the extent. (This is a simple way of defining the boundaries of the data you will download. Note that selecting large boundaries will result in very large file sizes.) Now click the <kbd>...</kbd> button next to <kbd>Output file</kbd> and select a file name and destination directory to which you will save the downloaded information.</p>
+
+<h2>Opening the OSM file and selecting layers</h2>
+
+<p>To add the OSM data you just downloaded, select <kbd>Layer &rarr; Add Layer &rarr; Add Vector Layer...</kbd>. Browse to the OSM file you just downloaded and select <kbd>OK</kbd> then <kbd>Open</kbd> to open it. You will now see a new window with a list of layers that this file contains. You can select some or all of these. When you hit <knd>OK</knd> you will see each of these layers appear on your map and in your <kbd>Layers Panel</kbd>. For the rest of this exercise, focus just on the lines layer.</p>
+
+<h2>Labeling the vector data</h2>
+
+<p>You can add labels to this new layer just as you did above. You may find, however, that there is too much information and that you want to filter it somehow. You can filter the labels themselves using the labels tab. Or you can filter the features in the layer as follows:</p>
+
+<h2>Filtering the vector data</h2>
+
+<p>To filter a layer, open the <kbd>Properties</kbd> window (right click the layer and select this) and go to the <kbd>General</kbd> tab. Scroll down and you will see a <kbd>Provider feature filter</kbd> box. Click on the <kbd>Query Builder</kbd> button just below this box on the right. This will bring up a new window in which you can write a query to filter the features in this layer according to their attribute fields. To do this, you need to know something about what these fields contain, and you can see this by clicking on a field and hitting the <kbd>Sample</kbd> button. You can then create a filter by double clicking on a field name, clicking an operator, and then double clicking a value. You will see the query being built as you do this in the box at the bottom. For example <kbd>"highway"='tertiary'</kbd> would filter the features to include only those for which the "highway" field has the value (character string in this case) 'tertiary'.</p>
+
+<p>Another way of filtering, which is often easier, is to start by coloring the features according to some field of interest. In the <kbd>Style</kbd> tab, select <kbd>Categorized</kbd> in the selector at the top. Then choose the field you want to use for this in the <kbd>Column</kbd> selector. Hit the <kbd>Classify</kbd> button and QGIS will assign a different random color to each different value that appears in this field. Click <kbd>OK</kbd> to see how this looks on the map. You can now click the field in the <kbd>Layers Panel</kbd> to expand it to show each unique value and the color assigned to it. You can click any of these to remove or return it to the map.</p>
 
 <!--
             <div class="well">
