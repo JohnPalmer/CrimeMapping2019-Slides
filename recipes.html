@@ -357,24 +357,26 @@
 
 <p>Afegeix dades de Open Street Maps amb <kbd>Vectorial &rarr; OpenStreetMap &rarr; Baixa dades...</kbd>. Per "Extensió" selecciona "Des de la vista del mapa." Per "Fitxer de sortida", selecciona un lloc on pots guardar les dades.  Despres de guardar-les, hauras de afegir amb <kbd>Capa &rarr; Afeigeix una capa &rarr;  Afeigeix una capa vectorial...</kbd></p>
 
-        <h1>Mapes de dades agregades</h1>
+-->
+        <h1>Mapping Aggregated Data</h1>
 
-          <h2>Choropleth</h2>
+          <h2>Choropleth Maps</h2>
 
-          <h3>Obtingues dades</h3>
+          <h3>Downloading data</h3>
 
-          <p>Per practicar, utilitzarem dades de 2013 que he extret de la base de dades d'Eurostat <i><a href="http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-559176_QID_-2189685_UID_-3F171EB0&layout=ICCS,L,X,0;GEO,C,Y,0;UNIT,L,Z,0;TIME,C,Z,1;INDICATORS,C,Z,2;&zSelection=DS-559176TIME,2013;DS-559176INDICATORS,OBS_FLAG;DS-559176UNIT,NR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_1_0&rankName4=ICCS_1_2_0_0&rankName5=GEO_1_2_0_1&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23">Recorded offences by offence category - police data</a></i>. (He netejat ells una mica per fer l'exercici més fàcil.)</p>
+          <p>For this exercise, we will use 2013 data extracted from the Eurostat database <i><a href="http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-559176_QID_-2189685_UID_-3F171EB0&layout=ICCS,L,X,0;GEO,C,Y,0;UNIT,L,Z,0;TIME,C,Z,1;INDICATORS,C,Z,2;&zSelection=DS-559176TIME,2013;DS-559176INDICATORS,OBS_FLAG;DS-559176UNIT,NR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_1_0&rankName4=ICCS_1_2_0_0&rankName5=GEO_1_2_0_1&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23">Recorded offences by offence category - police data</a></i>. (This data has been cleaned sightly after extraction to make things faster.)</p>
 
-          <a class="btn btn-default" href="data/crim_off_cat_rates.csv" role="button">Descarregar les dades</a>
+          <a class="btn btn-default" href="data/crim_off_cat_rates.csv" role="button">Download Data</a>
 
-          <h3>Obtingues arxius de formes</h3>
-          <p>Per practicar, utilitzarem <a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat geodatafiles de països</a> en l'escala de 1:3 milions. No us oblidis de descomprimir l'arxiu despres de descarregar-lo.</p>
+          <h3>Download Shapefiles</h3>
+          <p>We will map this data using the <a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat Countries 2013</a> shapefiles at the 1:3 million scale. You will need to unzip the file after downloading it.</p>
 
-          <a class="btn btn-default" href="http://ec.europa.eu/eurostat/cache/GISCO/geodatafiles/CNTR-03M-2013-SH.zip" role="button">Descarregar els arxius de formes</a>
+          <a class="btn btn-default" href="http://ec.europa.eu/eurostat/cache/GISCO/geodatafiles/CNTR-03M-2013-SH.zip" role="button">Download Shapefiles</a>
 
-          <h3>Afegeix les formes</h3>
+          <h3>Add Country Boundaries to Map</h3>
 
-          <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
+          <p>Add the country boundaries using <kbd>Layer &rarr; Add Layers &rarr; Add Vector Layer</kbd>, or with the <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span> button.</p>
+<!--
 
           <div class="well">
             <div class="media">
@@ -389,7 +391,6 @@
               </div>
             </div>
           </div>
-
           <p>Hem de seleccionar els arxius de formes.</p>
 
           <div class="well">
@@ -405,9 +406,9 @@
               </div>
             </div>
           </div>
-
-          <p>Per afegir arxius de forma ESRI, hem de seleccionar els arxius amb l'extensió <samp>.shp</samp> (QGIS s'obre automàticament tots els arxius associats). Per ara no mes necesitem els arxius <samp>CNTR_2014_03M_SH/Data/CNTR_RG_03M_2014.shp</samp>, pero podem seleccionar tots els arxius <samp>.shp</samp>. La manera més facil és ordenar els arxius per tipus i aleshores utilitzar la tecla de majúscules per seleccionar tot acaba en <samp>.shp</samp>.
-
+-->
+          <p>In the window that pops up, select the files that have the <samp>.shp</samp> extension (QGIS will automatically open all associated files). For now, we need only the file <samp>CNTR_2014_03M_SH/Data/CNTR_RG_03M_2014.shp</samp>, but you can select all of the <samp>.shp</samp> files. The easiest way to do that is to first sort the files by type and then hold down the shift key while selecting those ending in <samp>.shp</samp>.
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -421,15 +422,15 @@
                 </div>
               </div>
             </div>
-
-            <p>Després de seleccionar els arxius i fer clic a "Open" en les dues finestres de diàleg, les formes apareixeran al llenç del mapa. Recorda que l'ordre de capes en el subfinestre de capes determina l'aparició en el llenç del mapa.</p>
-
-
-            <h3>Afegeix les dades</h3>
-
-            <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
+-->
+            <p>After selecting the files, click "Open" in the two dialog windows, and the shapes should appear on the map. (Remember that the order of the layers in the layer panel controls the order on the map and that you may need to change this to view certain layers.)</p>
 
 
+            <h3>Adding the data</h3>
+
+            <p>Add the data using <kbd>Layer &rarr; Add Layer &rarr; Add text delimited layer</kbd>, or with the <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span> button.</p>
+
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -443,9 +444,9 @@
                 </div>
               </div>
             </div>
-
-            <p>Selecciona el arxiu de dades (per aquesta demostració, això és <samp>crim_off_cat_rates.csv</samp>). En la linea <kbd>Definició de geometria</kbd>, selecciona <kbd>No hi ha cap geometria (només la taula d'atributs)</kbd> i fes clic a <kbd>OK</kbd>.</p>
-
+-->
+            <p>Select the data file (for this exercise, it is <samp>crim_off_cat_rates.csv</samp> if you need not change the name when saving it). In the box <kbd>Geometry definition</kbd>, select <kbd>No geometry (only attribute table)</kbd> and click <kbd>OK</kbd>.</p>
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -476,11 +477,11 @@
               </div>
             </div>
 
+-->
+            <h3>Join the country polygons with the data.</h3>
 
-            <h3>Uneix als polígons dels països a les dades.</h3>
-
-            <p>En el subfinestre de capes, fes doble clic a la capa <samp>CNTR_RG_03M_2013</samp> per obrir els seus propietats (o fes clic dret a la i seleciona <kbd>Propietats</kbd>.) Seleciona el panel de <kbd>Unions</kbd>.
-
+            <p>In the layers panel, right click on the country boundary layer (which will be called <samp>CNTR_RG_03M_2013</samp> if you have not changed the names) and select <kbd>Propietats</kbd>. In the properties window, selected the <kbd>Unions</kbd> panel.
+<!--
 
              <div class="well">
               <div class="media">
@@ -496,7 +497,7 @@
               </div>
             </div>
 
-            <p>Fes clic al boton <span><img height="30px" src="images/r_choro_props_plus.png" alt="screenshot"></span>. En el camp <kbd>Uneix la capa</kbd> selecciona la capa les dades (per aquesta demostració, <samp>crim_off_cat_rates</samp>); en <kbd>Uneix el cap</kbd> i <kbd>Camp objectiu</kbd> selecciona el camps de les dades i dels polígons que coincideixen  (per aquesta demostració, <samp>GEO</samp> i <samp>CNTR_ID</samp>).</p>
+            <p>Click the <span><img height="30px" src="images/r_choro_props_plus.png" alt="screenshot"></span> button. In the En el camp <kbd>Uneix la capa</kbd> selecciona la capa les dades (per aquesta demostració, <samp>crim_off_cat_rates</samp>); en <kbd>Uneix el cap</kbd> i <kbd>Camp objectiu</kbd> selecciona el camps de les dades i dels polígons que coincideixen  (per aquesta demostració, <samp>GEO</samp> i <samp>CNTR_ID</samp>).</p>
 
             <div class="well">
               <div class="media">
