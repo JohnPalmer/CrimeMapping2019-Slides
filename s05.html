@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Mètodes d'Investigació Criminològica Avançada</title>
+	<title>Crime Mapping and Spatial Analysis</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/beige.css">
@@ -32,135 +32,186 @@
 		<div class="slides">
 
 			<section>
-				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
-				<h3>Sessió 5: Anàlisi quantitatiu</h3>
+				<h1>Crime Mapping and Spatial Analysis</h1>
+				<h3>Class 5: Crime Mapping I</h3>
 				<p><a href="http://johnrbpalmer.com">John Palmer</a>
 				</section>
 
 <section>
-<h2>Models Lineals</h2>
-</section>
-
-<section data-background-image="images/echazarra_cover.png" data-background-size="contain">
-</section>
-
-
-<section data-background-image="images/perception_reg_FE.png" data-background-size="contain">
-</section>
-
-
-<section data-background-image="images/perception_ML_1.png" data-background-size="contain">
-</section>
-
-<section data-background-image="images/perception_ML_2.png" data-background-size="contain">
-</section>
-
-
-
-
-
-<section>
-<h3>L'equació de predicció</h3>
-$$\hat{y} = a + bx$$
-</section>
-
-
-<section>
-<h3>mínims quadrats ordinaris</h3>
-$$b = \frac{\sum\left(x - \bar{x}\right)\left(y - \bar{y}\right)}{\sum\left(x-\bar{x}\right)^2}$$
-<br>
-$$a = \bar{y} - b\bar{x}$$
+	<h2>Maps for Visual Thinking</h2>
+	<ul>
+		<li>generate ideas or hypotheses</li>
+		<li>crude, working maps</li>
+	</ul>
 </section>
 
 <section>
-<h3>Exercici: Biometria dels estudiants</h3>
-<a href="demo_s02.R">R Script</a><br>
-<a href="http://www.amstat.org/publications/jse/v20n3/mclaren/shoesize.xls">Dataset</a>
+	<h2>Maps for Visual Communication</h2>
+	<ul>
+		<li>synthesize and present information</li>
+		<li>understand what you want to communicate and who is your target audience</li>
+	</ul>
 </section>
 
-					<section data-transition="fade-out">
-						<h3>Relació entre altura i talla de sabates</h3>
-						<img class="stretch" src="images/height_shoe_scatter.png">
-					</section>
-
-					<section data-transition="fade-in">
-						<h3>Relació entre altura i talla de sabates</h3>
-						<img class="stretch" src="images/height_shoe_scatter_lm.png">
-					</section>
-
+<section>
+	<h2>Visual Communication</h2>
+	<ul>
+		<li>points, lines, polygons</li>
+		<li>color and pattern</li>
+		<li>shape</li>
+		<li>size</li>
+		<li>isolines and 3D effects</li>
+	</ul>
+</section>
 
 <section>
-<h3>Correlació</h3>
-$$r = \left(\frac{s_x}{s_y}\right)b$$ 
+	<h2>Map types</h2>
+	<ul>
+		<li>points</li>
+		<li>proportional symbols</li>
+		<li>choropleths</li>
+		<li>charts</li>
+		<li>isolines</li>
+		<li>connections</li>
+	</ul>
 </section>
 
 
 <section>
-<h3>Regressió multivariant</h3>
-$$\hat{y} = \alpha + \beta_1x_1 + \beta_2x_2$$
+	<h3>Point Maps</h2>
+	<ul>
+		<li>choice of symbols</li>
+		<li>choice of colors</li>
+	</ul>
 </section>
 
 <section>
-<h3>Regressió multivariant</h3>
-<a href="images/fp_3Dreg/index.html">3D</a>
+	<h3>Proportional Symbol Maps</h2>
+	<ul>
+		<li>choice of symbol</li>
+		<li>choice of size</li>
+		<li>choice of color</li>
+	</ul>
 </section>
 
 <section>
-<h3>Variables categòriques</h3>
-$$\hat{y} = \alpha + \beta_1{x_1} + \beta_2{\textrm{D}}$$
+	<h3>Choropleth Maps</h2>
+	<ul>
+		<li>choice of color</li>
+		<li>choice of pattern</li>
+	</ul>
 </section>
 
 <section>
-<h3>Variables categòriques</h3>
-<img class="stretch" src="images/fp_reg_cat.png">
+	<h3>Charts</h2>
+	<ul>
+		<li>pie</li>
+		<li>bar</li>
+		<li>graduated circle</li>
+		<li>line</li>
+		<li>density dots</li>
+	</ul>
 </section>
 
-
 <section>
-<h3>Variables categòriques</h3>
-<img class="stretch" src="images/fp_reg_ints.png">
-</section>
-
-<section>
-<h3>Interaccions</h3>
-$$\hat{y} = \alpha + \beta_1x_1 + \beta_2\textrm{D} + \beta_3x_1\textrm{D}$$
-</section>
-
-
-<section>
-<h3>Interaccions</h3>
-<img class="stretch" src="images/fp_reg_ints_slopes.png">
-</section>
-
-
-<section>
-<h3>Interaccions</h3>
-$$\hat{y} = \alpha + \beta_1x_1 + \beta_2x_2 + \beta_3x_1x_2$$
-</section>
-
-
-<section>
-<h3>Interaccions</h3>
-<a href="images/fp_int_3Dreg/index.html">3D</a>
+	<h3>Classifying color or size</h3>
+	<ul>
+		<li>How many classes? (4-6 as rule of thumb)</li>
+		<li>What type of data?</li>
+		<li>What does viewer need to understand?</li>
+</ul>
 </section>
 
 
 <section>
-<h3>Logit</h3>
-$$\textrm{logit}(\pi) = \textrm{log}\frac{\pi}{1-\pi} = \alpha + \beta x$$
+	<h3>Classification Approaches</h3>
+	<ul>
+		<li>Equal intervals</li>
+		<li>Equal counts (quantiles)</li>
+		<li>Equal areas</li>
+		<li>Natural breaks</li>
+		<li>Standard deviations</li>
+</ul>
 </section>
 
 
-<section data-background-image="images/perception_reg_FE.png" data-background-size="contain">
+				<section>
+				<img src="images/nyc_assaults_precinct.png" class="stretch">
+				</section>
+
+
+<section>
+	<a href="http://trends.vera.org/incarceration-rates?year=2015">Vera Institute Incarceration Rate Map</a>
+</section>
+
+<section>
+	<h3>Modifiable Areal Unit Problem</h3>
+</section>
+
+				<section>
+				<img src="images/nyc_assaults_precinct.png" class="stretch">
+				</section>
+
+
+				<section>
+				<img src="images/nyc_assaults_hex.png" class="stretch">
+				</section>
+
+
+				<section>
+				<img src="images/maup_hex.png" class="stretch">
+				</section>
+
+				<section>
+				<h3>Heat maps</h3>
+				</section>
+
+
+				<section>
+				<img src="images/nyc_assaults_heat_10m.png" class="stretch">
+				</section>
+
+				<section>
+				<h3>Standard deviational Ellipse</h3>
+				</section>
+
+
+				<section>
+				<img src="images/nyc_crime_sde.png" class="stretch">
+				</section>
+
+				<section>
+				<h3>Clustering</h3>
+				</section>
+
+
+
+				<section>
+				<img src="images/clustered_map.png" class="stretch">
+				</section>
+
+
+<section>
+	<h3>Connections and flows</h3>
+</section>
+
+<section>
+	<a href="http://bit.ly/1mTnXsd">Bath City Commuters</a>
+</section>
+
+<section>
+	<h3>Story maps</h3>
+</section>
+
+<section>
+	<a href="https://www.forensic-architecture.org/case/guatemala-operacion-sofia/">Guatemala: Operation Sofia (Forensic Architecture)</a>
 </section>
 
 
-<section data-background-image="images/perception_ML_1.png" data-background-size="contain">
+<section>
+<h2>Final Project: Mapping Component</h2>
+<a href="crime_mapping_project_instructions_1.pdf">Instructions</a>
 </section>
-
-<section data-background-image="images/perception_ML_2.png" data-background-size="contain">
-</section>
-
 
 
 
