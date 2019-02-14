@@ -358,7 +358,7 @@
 <p>Afegeix dades de Open Street Maps amb <kbd>Vectorial &rarr; OpenStreetMap &rarr; Baixa dades...</kbd>. Per "Extensió" selecciona "Des de la vista del mapa." Per "Fitxer de sortida", selecciona un lloc on pots guardar les dades.  Despres de guardar-les, hauras de afegir amb <kbd>Capa &rarr; Afeigeix una capa &rarr;  Afeigeix una capa vectorial...</kbd></p>
 
 -->
-        <h1>Mapping Aggregated Data</h1>
+        <h1 id="mapping_aggregated_data">Mapping Aggregated Data</h1>
 
           <h2>Choropleth Maps</h2>
 
@@ -548,6 +548,7 @@
 
               <p>Use the layers panel to remove any unnecessary layers that are distracting (for instance, if you included all of the shape files in the Eurostat country data). Use the zoom and pan tools to focus the map on the area of interest to you.</p>
 
+<!--
 
               <div class="well">
                 <div class="media">
@@ -562,7 +563,7 @@
                   </div>
                 </div>
               </div>
-
+-->
               <h2>Proportional Symbols</h2>
 
               <p>The choropleth map you just produced represents quantitative data using colors. But it is limited to showing one field from your data. What if you want to show additional information? One option would be to add a symbol on top of each color, making the size proportional to the additional values you want to display. In other words, one field will be displayed by color and another by size.</p>
@@ -1036,26 +1037,27 @@
                 </div>
               </div>
 
+-->
+        <h1>Aggregating Point Data</h1>
 
-        <h1>L'agregació dels punts</h1>
+        <h2>Counting Points in Areal Units</h2>
 
-        <h2>Comptant punts en unitats d'àrees existents</h2>
+        <h3>Obtain the data</h3>
 
-        <h3>Obtingues dades</h3>
+          <p>For this exercise, we will again use the New York City assault data extracted from  <a href="https://data.cityofnewyork.us/">NYC Open Data</a>, which you can download by clicking the button below.</p>
 
-          <p>Per practicar, utilitzarem dades de assalts en Nova York en novembre i disembre 2016 que he extret de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+          <a class="btn btn-default" href="data/NYPD_Complaint_Map__Year_to_Date.csv" role="button">Download the data</a>
 
-          <a class="btn btn-default" href="data/NYPD_Complaint_Map__Year_to_Date.csv" role="button">Descarregar les dades</a>
+          <h3>Obtaining shapefile</h3>
+          <p>We will use the polygons in the New York City police precinct geojson shapefile from the same site. You can download it using the button below. If the geojson text appears in a new browser window rather than automatically triggering a download prompt, simply choose <kbd>Save Page As...</kbd> or else copy the text and past it into a new text file, saving with the geojson extension.</p>
 
-          <h3>Obtingues arxius de formes</h3>
-          <p>Per practicar, utilitzarem un arxiu geojson amb polygons dels recintes del Departament de Policia de Nova York que he descargat de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+          <a class="btn btn-default" href="data/PolicePrecincts.geojson" download="data/PolicePrecincts.geojson" role="button">Download geojson shapefile</a>
 
-          <a class="btn btn-default" href="data/Police Precincts.geojson" role="button">Descarregar els arxius de formes</a>
+          <h3>Add the shapefile layer to your map</h3>
 
-          <h3>Afegeix les formes</h3>
+          <p>Add the shapefile to your map with <kbd>Layer &rarr; Add Layer &rarr; Add Vector Layer...</kbd>, or with the <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span> button.</p>
 
-          <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
-
+<!--
           <div class="well">
             <div class="media">
               <div class="media-body">
@@ -1069,9 +1071,10 @@
               </div>
             </div>
           </div>
+-->
+          <p>Select the geojson file and click <kbd>Open</kbd>.
 
-          <p>Selecciona el arxiu geojson i fes clic al <kbd>Open</kbd>.
-
+<!--
           <div class="well">
             <div class="media">
               <div class="media-body">
@@ -1085,14 +1088,14 @@
               </div>
             </div>
           </div>
+-->
 
+            <h3>Add the data</h3>
 
-            <h3>Afegeix les dades</h3>
+            <p>Add the data using <kbd>Layer &rarr; Add Layer &rarr; Add Delimited Text Layer...</kbd>, or the <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span> button.</p>
 
-            <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
-
-            <p>Selecciona el arxiu de dades (per aquesta demostració, això és <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). En la linea <kbd>Definició de geometria</kbd>, selecciona <kbd>Coordenades del punt</kbd> i fes clic a <kbd>OK</kbd>.</p>
-
+            <p>Select the data file (for this exercise it is <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). On the  <kbd>Geometry definition</kbd> line, make sure <kbd>Point coordinates</kbd> is selected and make sure the <samp>Longitude</samp> and <samp>Latitude</samp> fields are selected for the <kbd>X field</kbd> and <kbd>Y field</kbd>, respectively. Click <kbd>OK</kbd>.</p>
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -1106,9 +1109,9 @@
                 </div>
               </div>
             </div>
-
-            <p>Selecciona una sistema de referència de coordinades (SRC). Si els coordinades dels punts son latitud i longitud, el SRC correcte es WGS 84 (EPSG 4326) i normalment esta seleccionat per defecte. Si tens dades amb altres coordinades, haurias de mirar en la documentació de les dades per a buscar el SRC.</p>
-
+-->
+            <p>In the <samp>Coordinate Reference System</samp> window that should now pop up, select the appropriate coordinate reference system. If the points are defined by Latitude and Longitude (as in our exercise data), then this should be WGS 84 (EPSG 4326). (If you are using data in another coordinate reference system, make sure you check which this is in the data documentation.)</p>
+<!--
             <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -1122,7 +1125,6 @@
                 </div>
               </div>
             </div>
-
 
             <p>El teu finestre hauria de d'aparèixer això (més o menys):</p>
 
@@ -1141,11 +1143,13 @@
               </div>
             </div>
 
+-->
 
-          <h3>Comptar els punts en els polígons</h3>
+          <h3>Count the points in each polygon</h3>
 
- <p>Compta els punts en els polígons amb <kbd>Vectorial &rarr; Analysis Tools &rarr; Compte als punts al polígon</kbd>.</p>
+ <p>To count how many points (crime report locations) fall within each polygon (police precinct), use <kbd>Vector &rarr; Analysis Tools &rarr; Count points in polygon</kbd>.</p>
 
+<!--
     <div class="well">
               <div class="media">
                 <div class="media-body">
@@ -1160,10 +1164,11 @@
               </div>
             </div>
 
+-->
 
+ <p>In the parameters tab of the window that pops up make sure that the correct layers are selected for the polygons and the points, and click <kbd>Run</kbd>.</p>
 
- <p>En la subfinestre dels paràmetres, comprova que les capes seleccionades són correctes i fes clic al <kbd>Run</kbd>.</p>
-
+<!--
 
     <div class="well">
               <div class="media">
@@ -1178,9 +1183,35 @@
                 </div>
               </div>
             </div>
+-->
+<p>You will now see that a new layer has appeared on your map and inyour layers window. The new layer contains the polygons from your original polygon layer, but it also has an attribute table that links each of these polygons to the count of points that falls within it. The polygons will appear by default with one single fill color, but you can change the style to color them according the count. (For example, follow the <a href="#mapping_aggregated_data">Mapping Aggregated Data</a> recipes.)</p>
 
-<p>A la subfinestra dels capes ara tens una nova capa de polígons que inclou les compta com un atribut. Pots seguir el recepte per un Choropleth o un altre recepte amb aquesta informació aggregada.</p>
+<h1>Geocoding</h1>
 
+<p>Geocoding is the process of converting addresses into geographic coordinates. We can do this in QGIS using the MMQGIS Plugin.</p> 
+
+<h2>Install MMQGIS</h2>
+
+<p>Install the MQGIS plugin using <kbd>Plugins &rarr; Manage and Install Plugins</kbd> and searching for <samp>mmqgis</samp>.</p>
+
+
+<h2>Obtain CSV address file</h2>
+
+<p>The addresses you want to geocode using MMQGIS need to be in a CSV file that includes fields for address, city, state (province), and country. You could create a file like this using Excel or you may have a file like this already from whatever data source you are working with. For this exercise, use the file here:</p>
+
+  <a class="btn btn-default" href="data/guardia_urbana_bcn_addresses.csv" role="button">Download the address data</a>
+
+<h2>Use the MMQGIS geocoding function</h2>
+
+<p>To geocode these addresses, click <kbd>MMQGIS &rarr; Geocode &rarr; Geocode CSV with Google / Open Street Map</kbd>.</p>
+
+<p>In the dialog window that pops up, choose the CSV file with your addresses and make sure the Address, City, State, and Country fields are selected correctly. If you choose to geocode with Google Maps, you may need to obtain an Google API key to avoid limits. The simpler alternative is to use the OpenStreetMap / Nominatum option. You will also need to specify file names for the output file (where the geolocations will be stored) as well as for a file that will store a list of addresses that could not be geocoded. This second part is important because you will need to find ways to locate these addresses (often by modifying the address text). When you have all of this specified, click <kbd>OK</kbd>.</p>
+
+<p>If some or all of the addresses could be geocoded, you will see a new points layer appear on your map, containing the locations. Make sure to check the file of addresses that could not be geocoded as well, and figure out what went wrong with these. One common error is with the character encoding. Your csv file needs to be encoded as UTF-8.</p>
+
+
+
+<!--
     <div class="well">
               <div class="media">
                 <div class="media-body">
