@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Mètodes d'Investigació Criminològica Avançada</title>
+	<title>Crime Mapping and Spatial Analysis</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/beige.css">
@@ -32,27 +32,153 @@
 		<div class="slides">
 
 			<section>
-				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
-				<h3>Sessió 7: Mapes de delictes</h3>
+				<h1>Crime Mapping and Spatial Analysis</h1>
+				<h3>Class 7: Spatio-Temporal Dependence and Heterogeneity</h3>
 				<p><a href="http://johnrbpalmer.com">John Palmer</a>
 				</section>
 
-			
 				<section>
-				<h2>Examen parcial</h2>
-				<ul>
-				<li><b>Format</b>: Preguntes d'opció múltiple, preguntes que demanen respostas calculadas, i preguntes de resposta breu.</li>
-				<li><b>Temps limitat</b>: 1 hora.</li>
-				<li><b>Disponibilitat</b>: 09/02/2017 08:00 - 13/02/2017 13:00</li>
-				<li><b>Continguts</b>: Sessions 1-10.</li>
+					<ul>
+					"everything is related to everything else, but near things are more related than distant things"
+					<br>
+					<br>
+					--Waldo Tobler's First Law of Geography
 				</ul>
 				</section>
 
+				<section>
+					<h2>Clustering</h2>
+				<h3>"K-means"</h3>
+				$$\textrm{arg min}\sum_{i=1}^k\sum_{x_j \in s_i}\left(x_j - \mu_i \right)^2$$
+				</section>
+
 
 				<section>
-				<h2>Receptes de QGIS</h2>
-				<a href="recipes.html">Receptes</a>
+					<p>How many clusters should you use?</p>
 				</section>
+
+				<section>
+					<h4>K=2</h4>
+					<img src="images/clusters_2.png" class="stretch">
+				</section>
+				<section>
+										<h4>K=10</h4>
+
+					<img src="images/clusters_10.png" class="stretch">
+				</section>
+				<section>
+										<h4>K=20</h4>
+					<img src="images/clusters_20.png" class="stretch">
+				</section>
+
+
+				<section>
+					<img src="images/cluster_comparison_elbow.png" class="stretch">
+				</section>
+
+				<section>
+										<h4>K=5</h4>
+					<img src="images/clusters_5.png" class="stretch">
+				</section>
+
+				<section>
+					<p>What about time?</p>
+				</section>
+
+				<section>
+ 				<img src="images/chicago3d.png" class="stretch">
+				</section>
+
+
+				<section>
+					<h2>Smoothing</h2>
+				<h3>Kernel Density Estimation</h3>
+				$$ \hat{f}_h(x) = \frac{1}{n}\sum_{i=1}^n K_h(x - x_i) =  \frac{1}{nh}\sum_{i=1}^n K\left(\frac{x - x_i}{h}\right)$$
+				</section>
+
+				<section>
+ 				<img src="images/density_x.png" class="stretch">
+				</section>
+
+				<section>
+ 				<img src="images/density_y.png" class="stretch">
+				</section>
+
+				<section>
+ 				<img src="images/density_2d.png" class="stretch">
+				</section>
+
+				<section>
+					<h2>Temporal Dependence</h2>
+				</section>
+
+				<section>
+					<img src="images/chicago_hourly.png" class="stretch">
+				</section>
+
+				<section>
+					<img src="images/chicago_hour_bar.png" class="stretch">
+				</section>
+
+
+				<section>
+					<h2>Spatial Dependence</h2>
+				</section>
+
+				<section>
+				<h4>Spatial Weights</h4>
+				</section>
+
+				<section>
+				<h4>Moran's I - Global</h4>
+
+				$$ I = \frac{N}{S_0} \sum_{i=1}^N\sum_{j=1}^N \frac{w_{ij}(x_i-\mu)(x_j-\mu)}{\sum_{i=1}^N (x_i - \mu)^2} $$ <br>
+
+				$$ S_0 = \sum_{i=1}^N\sum_{j=1}^N w_{ij} $$
+				</section>
+
+				<section>
+				<h4>Moran's I - Local</h4>
+
+				$$ I_i = \frac{z_i}{\sum_i{z_i^2/N}} \sum_{j \in J_i}{w_{ij}Z_j}$$ <br>
+
+			
+				</section>
+
+
+				<section>
+				<h2>Spatial Regression</h2>
+				</section>
+
+
+<section>
+<h4>OLS Model</h4>
+$$ y = \alpha + \beta X + \epsilon$$
+</section>
+
+
+<section>
+<h4>Spatially Lagged Independent Variable</h4>
+$$ y = \alpha + \beta X + \rho W X +  \epsilon$$
+</section>
+
+
+<section>
+<h4>Spatially Lagged Dependent Variable</h4>
+$$ y = \alpha + \beta X + \rho W Y +  \epsilon$$
+</section>
+
+
+<section>
+<h4>Spatial Errors Model</h4>
+$$ y = \alpha + \beta X + \epsilon$$
+$$ \epsilon = \lambda W u + e$$
+</section>
+
+
+
+
+
 
 
 			</div>
