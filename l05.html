@@ -33,35 +33,15 @@
 
 		<section>
 		<h1>Crime Mapping and Spatial Analysis</h1>
-		<h3>Lab 4: Introduction to Stata</h3>
+		<h3>Lab 5: Spatial Dependence</h3>
 		<p><a href="http://johnrbpalmer.com">John Palmer</a>
 		</section>
 		
 			
 <section>
-<h3>Do-File Example</h3>
-
-<pre><code>
-// Spatial analysis of Chicago Crime data
-// John Palmer - Spring 2019
-
-version 15
-clear
-capture log close
-log using chicago_analysis, text replace
-
-// Here you would start your analysis for example:
-display 2+2
-
-log close
-</code></pre>
-
-</section>
-
-<section>
 <h4>Task 1</h4>
 	<ul>
-		<p>Follow the <a href="recipes.html#points_in_polys">Counting Points in Areal Units</a> recipe to aggregate the NYC assault data into police precincts. Save the resulting layer as an ESRI shape file.</p>
+		<p>Download the <a href="lab5.do">Lab 5 do-file</a>. Then download the NYC assault data you aggregated by police precincts in the last lab session. Follow the do file to run a simple OLS regression and test for spatial dependence using Moran's global I. Now use the same approach to check the aggregated Chicago data you created in the last lab session, adding to the do-file as you go. Make sure the do-file runs from beginning to end and log your work in a log file.</p>
 	</ul>
 </section>
 
@@ -69,32 +49,14 @@ log close
 <section>
 <h4>Task 2</h4>
 	<ul>
-		<p>Now go to the <a href="https://data.cityofchicago.org/Public-Safety/Crimes-Map/dfnk-7re6">Chicago Data Portal Crime Map</a> and filter the data to view just the last two weeks of crime reports. Download this data as a CSV file, import it into QGIS, and aggregate the points into an artificial grid of hexagons, which you can create using the MMQGIS plugin. Save the resulting layer as an ESRI shape file. Also save the original point layer as a CSV file.</p>
+		<p>Now go back to QGIS and open the CSV file of the Chicago crime data that you saved in the last session. Create a new layer in which you aggregate counts of different crimes (your choice of which crimes and how many), and save this layer as a shape file. In Stata convert this file to stata format and regress the count of one crime type against the counts of the others you have chosen using an OLS model and check for spatial dependence. Now fit a spatial model. Log your work</p>
 	</ul>
 </section>
-
-
-<section>
-<h4>Task 3</h4>
-	<ul>
-		<p>Import the Chicago point layer CSV file into Stata and use the kmeans clustering command to cluster the reported crimes in space. Do this twice, using two different cluster numbers, then export your results as a CSV file.</p>
-	</ul>
-</section>
-
-
-<section>
-<h4>Task 4</h4>
-	<ul>
-		<p>Import the CSV file you generated in Task 3 into QGIS and display the points on the map, colored by one of the clusters. View both clusters and choose the one you think is most useful for understanding the spatial pattern of the points. Create a PDF of this map (using the print composer).</p>
-	</ul>
-</section>
-
 
 <section>
 	<h4>Lab Report (turn in via Aula Global before Thursday lecture)</h4>
 		<ul>
-		<li>Turn in the map you created in Task 4.</li>
-		<li>Save the shapefile files from Tasks 1 and 2 for use in the next lab.</li>
+		<li>Turn in the log files from each task.</li>
 		</ul>
 	</ul>
 </section>
