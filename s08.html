@@ -38,24 +38,68 @@
 				</section>
 
 
+
 				<section>
-				<h2>Spatial Regression</h2>
+					<h2>Preparing Data</h2>
 				</section>
 
 <section data-background-image="images/ss8_1.png" data-background-size="contain">
 </section>
 
+<section>
+	<h3>Changing CRS</h3>
+	<ul>
+	<li>Although not necessary, you may want to change your Coordinate Reference System (CRS) to UTM so that you can think about measurements (like the areal unit grid you are creating) in meters.</li>
+	<li>To do this, click the projection box at the bottom right of the map window in QGIS</li>
+</ul>
+</section>
+
 <section data-background-image="images/ss8_2.png" data-background-size="contain">
+</section>
+
+<section>
+	<h3>Making Hexagon Grid</h3>
+	<ul>
+	<li>With the Project CRS set to UTM, you can now create hexagons in meters.</li>
+	<li>Note that the x and y distances will not be equal because of the hexagon's shape.</li>
+</ul>
 </section>
 
 <section data-background-image="images/ss8_3.png" data-background-size="contain">
 </section>
 
+<section>
+	<h3>Changing Layer CRS</h3>
+		<ul>
+	<li>The on-the-fly Project CRS does not change the individual layer CRS, so your layers may still be in lon-lat.</li>
+	<li>If that is the case, you will need to set them so that the points layer CRS matches the polygons layer (hexagons) CRS before you can count points in polygons. Do this by saving the layer as a new file and setting the CRS while saving. This will transform the layer.</li>
+</ul>
+</section>
+
+
 <section data-background-image="images/ss8_4.png" data-background-size="contain">
+</section>
+
+<section>
+	<h3>Reducing Areal Unit Number</h3>
+	<ul>
+	<li>As many of you saw on Tuesday, having too many areal units makes it difficult to create distance matrices without lots of computational resources.</li>
+	<li>To reduce the number of areal units, we can make them bigger. But we can also remove the ones we don't need.</li>
+</ul>
 </section>
 
 <section data-background-image="images/ss8_5.png" data-background-size="contain">
 </section>
+
+<section>
+	<h3>Filtering Crime Data to Get Counts</h3>
+	<ul>
+	<li>To count different crime types in each areal unit, using the filtering function in the layer properties.</li>
+	<li>Filter first for one crime time, do the count, then filter for another crime type and do the count again.</li>
+	<li>To ensure that all of this data ends up in the same layer, make sure you use the new count layer each time.</li>
+</ul>
+</section>
+
 
 <section data-background-image="images/ss8_7.png" data-background-size="contain">
 </section>
@@ -67,9 +111,12 @@
 <section data-background-image="images/ss8_9.png" data-background-size="contain">
 </section>
 
-<section data-background-image="images/ss8_10.png" data-background-size="contain">
+<section data-background-image="images/ss8_11.png" data-background-size="contain">
 </section>
 
+<section>
+<h2>Fitting Spatial Regression Models</h2> 
+</section>
 
 <section>
 <h4>OLS Model</h4>
@@ -96,6 +143,37 @@ $$ \epsilon = \lambda W u + e$$
 </section>
 
 
+<section>
+	<pre><code>
+		regress assaults burglaries
+	</code></pre>
+</section>
+
+<section>
+	<pre><code>
+		spregress assaults burglaries, gs2sls dvarlag(W)
+	</code></pre>
+</section>
+
+<section>
+	<pre><code>
+		spregress assaults burglaries, gs2sls errorlag(W)
+	</code></pre>
+</section>
+
+<section>
+	<pre><code>
+		spregress assaults burglaries, gs2sls ivarlag(W: burglaries)
+	</code></pre>
+</section>
+
+
+<section>
+	<pre><code>
+		spregress assaults burglaries, gs2sls dvarlag(W) ivarlag(W: burglaries) errorlag(W)
+	</code></pre>
+</section>
+
 
 <section data-background-image="images/andresen_fig4.png" data-background-size="contain">
 </section>
@@ -104,6 +182,10 @@ $$ \epsilon = \lambda W u + e$$
 </section>
 
 
+<section>
+	<h2>Project Part 2</h2>
+<a href="crime_mapping_project_instructions_2.pdf">Instructions</a>
+</section>
 			</div>
 		</div>
 
