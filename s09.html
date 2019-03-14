@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>Mètodes d'Investigació Criminològica Avançada</title>
+	<title>Crime Mapping and Spatial Analysis</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/beige.css">
@@ -32,119 +32,168 @@
 		<div class="slides">
 
 			<section>
-				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
-				<h3>Sessió 9: Dades i maquinari de SIG</h3>
+				<h1>Crime Mapping and Spatial Analysis</h1>
+				<h3>Class 9: Interpretation and Synthesis</h3>
 				<p><a href="http://johnrbpalmer.com">John Palmer</a>
 				</section>
 
 
-				<section>
-					<h2>Sistemes d'Informació Geogràfica</h2>
-					<ul>
-						<li>Dades</li>
-						<li>Maquinari</li>
-						<li>Programari</li>
-					</ul> 			
-				</section>
+<section>
+	<h3>Follow-up on Lab 5 issues: QGIS</h3>
+	<ul>
+	<li>The key to easily adding multiple variables based on counts is to use each new counts layer (which is a polygon layer) as the polygon layer for the next count.</li>
+	<li>Make sure you give each new count field a new (and intuitive name).</li>
+	<li>If you need to rename a field, you can do this in the layer's properties window, Fields tab. (Set to editing mode first.)</li>
+	<li>Remove unnecessary layers to avoid confusion.</li>
+	</ul>
+</section>
+
+<section>
+	<h3>Follow-up on Lab 5 issues: Stata</h3>
+	<ul>
+	<li>Too many areal units will cause Stata to go slow or freeze when trying to create weights matrices.</li>
+	<li>Use <i>clear *</i> and <i>spshape2dta ..., replace</i> so that your do file can be run multiple times.</li>
+	<li>Once you have multiple variables, make sure you add some as covariates to your regression.</li>
+	</ul>
+</section>
 
 
-				<section>
-					<h3>Dades</h3>
-					<ul>
-						<li>vectorials</li>
-						<li>raster</li>
-					</ul>
-				</section>
+<section>
+<h2>Interpreting Spatial Regression Models</h2> 
+</section>
 
-				<section>
-					<h4>Dades vectorials</h4>
-					<img class="stretch" src="images/vector_bcn_zipcodes.svg">
-				</section>
-
-				<section>
-					<h4>Dades vectorials</h4>
-					<img class="stretch" src="images/svg_data.png">
-				</section>
-
-				<section>
-					<h4>Dades vectorials</h4>
-					<img class="stretch" src="images/vector_csv.png">
-				</section>
-
-				<section>
-					<h4>Dades vectorials</h4>
-					<ul><li>ESRI Shapefiles (.shp)
-					</li>
-					<li>GeoJSON (.json)</li>
-					<li>Comma Separated Values (.csv)</li>
-					<li>Keyhole Markup Language (.kml)</li>
-					<li>Scalable Vector Graphics (.svg)</li>
-				</ul>
-				</section>
+<section>
+<p>Spatially Lagged Independent Variable</p>
+$$ y = \alpha + \beta X + \rho W X +  \epsilon$$
+<br>
+<p>Spatially Lagged Dependent Variable</p>
+$$ y = \alpha + \beta X + \rho W Y +  \epsilon$$
+<br>
+<p>Spatial Errors Model</p>
+$$ y = \alpha + \beta X + \epsilon$$
+$$ \epsilon = \lambda W u + e$$
+</section>
 
 
-				<section>
-					<h4>Dades vectorials</h4>
-					<ul>
-					<li>punts</li>
-					<li>polilínies</li>
-					<li>polígons</li>
-					</ul>
-				</section>
 
-				<section>
-				<h4>Dades vectorals: escala</h4>
-				<img class="stretch" src="images/large_scale.png">
-				</section>
+<section>
+	<pre><code>
+	regress assaults burglaries
+	</code></pre>
+</section>
 
-				<section>
-				<h4>Dades vectorals: escala</h4>
-				<img class="stretch" src="images/small_scale.png">
-				</section>
+<section>
+	<img src="images/s09_reg1.png" class="stretch">
+</section>
 
-				<section>
-					<h4>Dades vectorials</h4>
-					<a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries#countries14">Eurostat Country Shapefiles</a>
-				</section>
+<section>
+	<img src="images/s09_reg1moran.png">
+</section>
 
 
-				<section data-state="footer_SDS">
-				<h4>Dades raster</h4>
-					<img class="stretch" src="images/raster_data_qgis_gis_intro.png">
-				</section>
+<section>
+	<img src="images/s09_reg1moran2.png">
+</section>
 
-				<section data-state="footer_SDS">
-				<h4>Dades raster</h4>
-					<img class="stretch" src="images/raster_data_zoomed.png">
-				</section>
+<section>
+	<pre><code>
+	spregress assaults burglaries, gs2sls dvarlag(W)
+	</code></pre>
+</section>
 
-				<section>
-					<h4>Dades raster</h4>
-					<ul>
-					<li>JPEG (.jpg)</li>
-					<li>TIFF (.tif)</li>
-					<li>GIF (.gif)</li>
-					<li>PNG (.png)</li>
-					</ul>
-				</section>
+<section>
+<img src="images/s09_reg2.png" class="stretch">
+</section>
+
+<section>
+	<img src="images/s09_reg2_impact.png" class="stretch">
+</section>
+
+<section>
+	<pre><code>
+	spregress assaults burglaries, gs2sls errorlag(W)
+	</code></pre>
+</section>
+
+<section>
+	<img src="images/s09_reg3.png" class="stretch">
+</section>
+
+<section>
+	<img src="images/s09_reg3_impact.png" class="stretch">
+</section>
+
+<section>
+	<pre><code>
+	spregress assaults burglaries, gs2sls ivarlag(W: burglaries)
+	</code></pre>
+</section>
+
+<section>
+	<img src="images/s09_reg4.png" class="stretch">
+</section>
+
+<section>
+	<img src="images/s09_reg4_impact.png" class="stretch">
+</section>
+
+<section>
+	<pre><code>
+	spregress assaults burglaries, gs2sls dvarlag(W) ///
+	    ivarlag(W: burglaries) errorlag(W) 
+	</code></pre>
+</section>
 
 
-				<section data-state="footer_layer_stack">
-				<h2>Capes</h2>
-					<img class="stretch" src="images/layer_stack_cropped.png">
-				</section>
+<section>
+	<img src="images/s09_reg5.png" class="stretch">
+</section>
+
+<section>
+	<img src="images/s09_reg5_impact.png" class="stretch">
+</section>
 
 
-				<section>
-					<h2>Maquinari</h2>
-					<ul>
-						<li>memòria (memòria RAM)</li>
-						<li>computació (processadors)</li>
-						<li>emmagatzematge (disc dur)</li>
-						<li>connectivitat (internet)</li>
-					</ul>
-				</section>
+<section>
+	<h3><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1541-0064.2006.00159.x">Andresen (2006)</a></h3>
+</section>
 
+
+<section data-background-image="images/andresen_fig4.png" data-background-size="contain">
+</section>
+
+<section>
+	<h3><a href="https://obrasociallacaixa.org/documents/10280/240906/vol37_ca.pdf/8f3018de-60d5-4fb3-baec-b8842536e222">Echazarra (2014)</a></h3>
+</section>
+
+
+<section data-background-image="images/echazarra_sp.png" data-background-size="contain">
+</section>
+
+
+<section>
+	<h2>Space and Time: Synthesis and Next Steps</h2>
+</section>
+
+<section>
+	<h4>Movement Analysis</h4>
+	<ul>
+		<li>Active and Passive Positioning</li>
+		<li>Trajectories</li>
+		<li>Movement Characteristics: Velocity and Acceleration</li>
+		<li>Space Use Characteristics: Max Distances, MCPs, Brown Bridging</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Project Part 1</h2>
+<a href="crime_mapping_project_instructions_1.pdf">Instructions</a>
+</section>
+
+<section>
+	<h2>Project Part 2</h2>
+<a href="crime_mapping_project_instructions_2.pdf">Instructions</a>
+</section>
 
 
 			</div>

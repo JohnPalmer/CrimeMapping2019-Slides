@@ -2,12 +2,12 @@
 // John Palmer - Spring 2019
 
 version 15
-clear
+clear *
 capture log close
 log using lab5, text replace
 
 // We will use the NYC police data that you aggregated by police precinct in the last lab. To convert this to Stata format, run the spshape2dta command after setting the working directory to the location of your shape files. If your shapefiles are named nyc_crime_precinct_agg, then:
-spshape2dta nyc_crime_precinct_agg
+spshape2dta nyc_crime_precinct_agg, replace
 
 // The output shows you that the command created two new files. Open the main one:
 use nyc_crime_precinct_agg
